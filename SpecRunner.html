@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Underscore Test Suite [Mocha]</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="lib/css/mocha.css" />
+    <script src="lib/jquery.js"></script>
+    <script src="lib/expect.js"></script>
+    <script src="lib/mocha.js"></script>
+    <script src="lib/sinon.js"></script>
+
+    <script>
+      // Tell mocha to use bdd-style expects
+      mocha.setup('bdd')
+    </script>
+
+    <!-- Load tests and helpers here -->
+    <script src="src/matrixUtil.js"></script>
+    <script src="spec/matrixUtilSpec.js"></script>
+
+    <script>
+      // Mocha expects a global onload var here and automagically executes it on pageload
+      onload = function(){
+        mocha.run();
+      };
+    </script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+  </body>
+</html>
