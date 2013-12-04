@@ -43,7 +43,7 @@ describe('Properties', function(){
   });
 
   it('should determine if a matrix is square', function(){
-    var rectOneMatrix = new MatrixUtil([0,0,0],[0,0,0]);
+    var rectOneMatrix = new MatrixUtil([[0,0,0],[0,0,0]]);
     var squareOneMatrix = new MatrixUtil([[1,1],[1,1]]);
 
     expect(squareOneMatrix.checkSquare()).to.be(true);
@@ -89,6 +89,14 @@ describe('Operations', function(){
     }).to.throwError();
   });
 
+  it('should multiply by a scala', function(){
+
+    var rectMatrix = new MatrixUtil([[1,2,3],[4,5,6]]);
+    rectMatrix.scalarMultiply(2);
+    expect(rectMatrix.getMatrix()).to.eql([[2,4,6],[8,10,12]])
+
+  });
+
   it('should transpose a matrix', function(){
     var rectMatrix = new MatrixUtil([[1,2,3],[4,5,6]]);
     rectMatrix.transpose();
@@ -132,7 +140,6 @@ describe('Operations', function(){
   it('should multiply two matrices', function(){
     var rectMatrix = new MatrixUtil([[1,2,3],[4,5,6]]);
     var squareOneMatrix = new MatrixUtil([[1,2],[3,4]]);
-
     rectMatrix.multiply(squareOneMatrix);
     expect(rectMatrix.getMatrix()).to.be.eql([[9,12,15],[19,26,33]]);
   })
