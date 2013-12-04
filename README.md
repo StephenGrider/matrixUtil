@@ -1,17 +1,16 @@
 Matrix Util
 ===========
 
------
 
 Purpose
 -------
 Concise and clear functions for NxM matrices.
 
--------
+
 
 Usage
 -------
--------
+
 To create a new empty matrix:
 
 ```
@@ -41,7 +40,6 @@ can be read as
 Functionality
 -------
 
------
 
 .getRowLength() --> Returns number of rows
 
@@ -142,7 +140,7 @@ squareMatrix.trace(); //26
 Tests
 -------
 
------
+
 
 Run specRunner.html
 
