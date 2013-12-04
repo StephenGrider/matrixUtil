@@ -125,7 +125,8 @@ squareMatrix.determinant(); //12
 .transpose() ---> Sets matrix object equal to its transpose
 
 ```
-var rectMatrix = new MatrixUtil([[1,2,3],[4,5,6]]);    rectMatrix.transpose();
+var rectMatrix = new MatrixUtil([[1,2,3],[4,5,6]]);
+rectMatrix.transpose();
 rectMatrix.getMatrix(); //[[1,4],[2,5],[3,6]]
 ```
 
