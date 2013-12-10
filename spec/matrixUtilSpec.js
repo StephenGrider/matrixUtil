@@ -89,7 +89,7 @@ describe('Operations', function(){
     }).to.throwError();
   });
 
-  it('should multiply by a scala', function(){
+  it('should multiply by a scalar', function(){
 
     var rectMatrix = new MatrixUtil([[1,2,3],[4,5,6]]);
     rectMatrix.scalarMultiply(2);
@@ -138,10 +138,10 @@ describe('Operations', function(){
   });
 
   it('should multiply two matrices', function(){
-    var rectMatrix = new MatrixUtil([[1,2,3],[4,5,6]]);
+    var rectMatrix = new MatrixUtil([[1,2],[4,5],[8,9]]);
     var squareOneMatrix = new MatrixUtil([[1,2],[3,4]]);
     rectMatrix.multiply(squareOneMatrix);
-    expect(rectMatrix.getMatrix()).to.be.eql([[9,12,15],[19,26,33]]);
+    expect(rectMatrix.getMatrix()).to.be.eql([[7,10],[19,28],[35,52]]);
   })
 
 });

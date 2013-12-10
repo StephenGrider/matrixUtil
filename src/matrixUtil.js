@@ -60,8 +60,8 @@ MatrixUtil.prototype.subtract = function(addMatrixObj){
 };
 
 MatrixUtil.prototype.multiply = function(aMatrix){
-  var m1 = aMatrix.getMatrix();
-  var m2 = this._matrix;
+  var m2 = aMatrix.getMatrix();
+  var m1 = this._matrix;
 
   var result = [];
   for (var i = 0; i < m1.length; i++) {
