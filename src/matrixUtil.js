@@ -10,13 +10,13 @@ MatrixUtil.prototype._each = function(func){
     }
   }
 };
-
-MatrixUtil.prototype.getRowLength = function(){
+//MatrixUtil.prototype.numColumns = function(){
+MatrixUtil.prototype.numColumns = function(){
   if(!this._matrix) return null;
   return this._matrix[0].length;
 };
-
-MatrixUtil.prototype.getColumnLength = function(){
+//MatrixUtil.prototype.numRows = function(){
+MatrixUtil.prototype.numRows = function(){
   if(!this._matrix) return null;
   return this._matrix.length;
 };
@@ -30,7 +30,7 @@ MatrixUtil.prototype.setMatrix = function(newMatrix){
 };
 
 MatrixUtil.prototype.checkSquare = function(){
-  if(this.getRowLength() === this.getColumnLength()){
+  if(this.numColumns() === this.numRows()){
     return true;
   }
   return false;
@@ -38,8 +38,8 @@ MatrixUtil.prototype.checkSquare = function(){
 
 MatrixUtil.prototype.add = function(addMatrixObj){
   var addMatrix = addMatrixObj.getMatrix();
-  if(this.getRowLength() != addMatrixObj.getRowLength() 
-     || this.getColumnLength() != addMatrixObj.getColumnLength() ){
+  if(this.numColumns() != addMatrixObj.numColumns() 
+     || this.numRows() != addMatrixObj.numRows() ){
     throw 'Matrices must be of equal dimensions to add';
   }
 
@@ -50,8 +50,8 @@ MatrixUtil.prototype.add = function(addMatrixObj){
 
 MatrixUtil.prototype.subtract = function(addMatrixObj){
   var subtractMatrix = addMatrixObj.getMatrix();
-  if(this.getRowLength() != addMatrixObj.getRowLength() 
-     || this.getColumnLength() != addMatrixObj.getColumnLength() ){
+  if(this.numColumns() != addMatrixObj.numColumns() 
+     || this.numRows() != addMatrixObj.numRows() ){
     throw 'Matrices must be of equal dimensions to add';
   }
   this._each(function(row,column){
@@ -86,7 +86,8 @@ MatrixUtil.prototype.scalarMultiply = function(scalar){
 
 MatrixUtil.prototype.transpose = function(){
   var transposedMatrix = [];
-  for(var i = 0; i < this.getColumnLength(); i++){
+  
+  for(var i = 0; i < this.numColumns(); i++){
     transposedMatrix.push([]);
   }
   this._each(function(row,column){
@@ -98,8 +99,8 @@ MatrixUtil.prototype.transpose = function(){
 MatrixUtil.prototype.determinant = function(){
   var s;
   var det = 0;
-  var k = this.getRowLength();
-  if(k != this.getColumnLength()){
+  var k = this.numColumns();
+  if(k != this.numRows()){
     throw 'Matrices must be of equal dimensions to multiply';
   }
   var calcDet = function(A){
@@ -197,7 +198,7 @@ MatrixUtil.prototype._RREF = function(matrix){
 };
 
 MatrixUtil.prototype.inverse = function(){
-  var m = this.getRowLength()
+  var m = this.numColumns()
   var identity = this._makeIdentity(m)
   var adjMatrix = this.getMatrix();
 

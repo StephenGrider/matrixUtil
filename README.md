@@ -41,18 +41,18 @@ Functionality
 -------
 
 
-.getRowLength() --> Returns number of rows
+.numRows() --> Returns number of rows
 
 ```
 var rectOneMatrix = new MatrixUtil([[0,0,0],[0,0,0]]);
-rectOneMatrix.getRowLength() // 2
+rectOneMatrix.numRows() // 2
 ```
 
-.getColumnLength() ---> Returns number of columns
+.numColumns() ---> Returns number of columns
 
 ```
 var rectOneMatrix = new MatrixUtil([[0,0,0],[0,0,0]]);
-rectOneMatrix.getColumnLength() // 3
+rectOneMatrix.numColumns() // 3
 ```
 
 .getMatrix() ---> returns the matrix in array format

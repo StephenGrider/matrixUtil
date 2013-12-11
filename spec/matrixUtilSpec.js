@@ -25,21 +25,21 @@ describe('Properties', function(){
   var matrix = new MatrixUtil();
 
   it('should return null when row length is not defined', function(){
-    expect(matrix.getRowLength()).to.eql(null);
+    expect(matrix.numColumns()).to.eql(null);
   });
 
   it('should return null when column length is not defined', function(){
-    expect(matrix.getRowLength()).to.eql(null);
+    expect(matrix.numColumns()).to.eql(null);
   });
 
-  it('should return a row length when a matrix is defined', function(){
-    matrix.setMatrix([[0,0],[0,0]]);
-    expect(matrix.getRowLength()).to.be(2)
+  it('should return the number of columns when a matrix is defined', function(){
+    matrix.setMatrix([[0,0,0],[0,0,0]]);
+    expect(matrix.numColumns()).to.be(3)
   });
 
-  it('should return a column length when a matrix is defined', function(){
-    matrix.setMatrix([[0,0],[0,0]]);
-    expect(matrix.getColumnLength()).to.be(2)
+  it('should return the number of rows when a matrix is defined', function(){
+    matrix.setMatrix([[0,0,0],[0,0,0]]);
+    expect(matrix.numRows()).to.be(2)
   });
 
   it('should determine if a matrix is square', function(){
@@ -98,9 +98,9 @@ describe('Operations', function(){
   });
 
   it('should transpose a matrix', function(){
-    var rectMatrix = new MatrixUtil([[1,2,3],[4,5,6]]);
+    var rectMatrix = new MatrixUtil([[1,3,5],[2,4,6]]);
     rectMatrix.transpose();
-    expect(rectMatrix.getMatrix()).to.eql([[1,4],[2,5],[3,6]])
+    expect(rectMatrix.getMatrix()).to.eql([[1,2],[3,4],[5,6]])
   });
 
   it('should throw an error when determining the determinant of an NxM matrix', function(){
