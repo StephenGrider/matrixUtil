@@ -10,12 +10,12 @@ MatrixUtil.prototype._each = function(func){
     }
   }
 };
-//MatrixUtil.prototype.numColumns = function(){
+
 MatrixUtil.prototype.numColumns = function(){
   if(!this._matrix) return null;
   return this._matrix[0].length;
 };
-//MatrixUtil.prototype.numRows = function(){
+
 MatrixUtil.prototype.numRows = function(){
   if(!this._matrix) return null;
   return this._matrix.length;
@@ -27,6 +27,7 @@ MatrixUtil.prototype.getMatrix = function(){
 
 MatrixUtil.prototype.setMatrix = function(newMatrix){
   this._matrix = newMatrix;
+  return this;
 };
 
 MatrixUtil.prototype.checkSquare = function(){
@@ -46,6 +47,7 @@ MatrixUtil.prototype.add = function(addMatrixObj){
   this._each(function(row,column){
     this._matrix[row][column] += addMatrix[row][column];
   }.bind(this));
+  return this;
 };
 
 MatrixUtil.prototype.subtract = function(addMatrixObj){
@@ -57,6 +59,7 @@ MatrixUtil.prototype.subtract = function(addMatrixObj){
   this._each(function(row,column){
     this._matrix[row][column] -= subtractMatrix[row][column];
   }.bind(this));
+  return this;
 };
 
 MatrixUtil.prototype.multiply = function(aMatrix){
@@ -75,6 +78,7 @@ MatrixUtil.prototype.multiply = function(aMatrix){
       }
   }
   this._matrix = result;
+  return this;
 };
 
 MatrixUtil.prototype.scalarMultiply = function(scalar){
@@ -82,6 +86,7 @@ MatrixUtil.prototype.scalarMultiply = function(scalar){
   this._each(function(row,column){
     this._matrix[row][column] *= scalar;
   }.bind(this));
+  return this;
 };
 
 MatrixUtil.prototype.transpose = function(){
@@ -94,6 +99,7 @@ MatrixUtil.prototype.transpose = function(){
     transposedMatrix[column][row] = this._matrix[row][column]
   }.bind(this));
   this._matrix = transposedMatrix;
+  return this;
 };
 
 MatrixUtil.prototype.determinant = function(){
@@ -218,10 +224,49 @@ MatrixUtil.prototype.inverse = function(){
     }
   }
   this._matrix = iMatrix;
+  return this;
 };
 
+MatrixUtil.prototype.rotateX = function(rad){
 
+  var rotation = new MatrixUtil([
+                                  [1,0,0,0],
+                                  [0,Math.cos(rad),-1*Math.sin(rad),0],
+                                  [0,Math.sin(rad),Math.cos(rad),0],
+                                  [0,0,0,1]
+                                ])
 
+  this.multiply(rotation);
+  return this;
+};
+MatrixUtil.prototype.rotateY = function(rad){
+
+  var rotation = new MatrixUtil()
+
+};
+MatrixUtil.prototype.rotateZ = function(rad){
+
+  var rotation = new MatrixUtil()
+
+};
+
+MatrixUtil.prototype.translate = function(x,y,z){
+
+  
+
+};
+
+MatrixUtil.prototype.toString = function(){
+  
+  this._each(function(row,column){
+    if(row===this._matrix[0].length-1 && column===this._matrix.length-1){
+      s+=this._matrix[row][column];
+    }else{
+      s+= this._matrix[row][column] + ","
+    }
+  }.bind(this));
+  return s
+}
 
 
 
