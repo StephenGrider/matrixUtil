@@ -86,7 +86,7 @@ MatrixUtil.prototype.scalarMultiply = function(scalar){
 
 MatrixUtil.prototype.transpose = function(){
   var transposedMatrix = [];
-  for(var i = 0; i < this.getRowLength(); i++){
+  for(var i = 0; i < this.getColumnLength(); i++){
     transposedMatrix.push([]);
   }
   this._each(function(row,column){
