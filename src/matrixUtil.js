@@ -257,7 +257,7 @@ MatrixUtil.prototype.translate = function(x,y,z){
 };
 
 MatrixUtil.prototype.toString = function(){
-  
+  var s = ""
   this._each(function(row,column){
     if(row===this._matrix[0].length-1 && column===this._matrix.length-1){
       s+=this._matrix[row][column];
