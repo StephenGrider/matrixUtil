@@ -144,6 +144,81 @@ MatrixUtil.prototype.trace = function(){
   return trace;
 };
 
+MatrixUtil.prototype._makeIdentity = function(m){
+  var matrix = [];
+  for(var i = 0; i < m ; i++){
+    matrix.push([]);
+    for(var j = 0; j < m ; j++){
+      if(i===j){
+        matrix[i].push(1);
+      } else{
+        matrix[i].push(0);
+      }
+    }
+  }
+  return matrix;
+};
+
+MatrixUtil.prototype._RREF = function(matrix){
+  var lead = 0;
+  var rowCount = matrix.length;
+  var colCount = matrix[0].length;
+  for(var r = 0; r < rowCount; r++){
+    if(colCount < lead){
+      return matrix;
+    }
+    var i = r;
+    while(matrix[i][lead] == 0){
+      i++;
+      if(rowCount == i){
+        i=r;
+        lead++
+        if(colCount === lead){
+          return matrix;
+        }
+      }
+    }
+    matrix[i] = [matrix[r], matrix[r] = matrix[i]][0]; //bwhahahha
+    var val = matrix[r][lead];
+    for(var j = 0; j < colCount; j++){
+      matrix[r][j] = matrix[r][j] / val;
+    }
+    for(var i = 0 ; i < rowCount; i++){
+      if(i != r){
+        var val = matrix[i][lead];
+        for(var t = 0; t < colCount ; t++){
+          matrix[i][t] -= val * matrix[r][t];
+        }
+      }
+    }
+    lead++;
+  }
+  return matrix
+};
+
+MatrixUtil.prototype.inverse = function(){
+  var m = this.getRowLength()
+  var identity = this._makeIdentity(m)
+  var adjMatrix = this.getMatrix();
+
+
+  for(var i =0 ; i < m ; i++){
+    adjMatrix[i] = adjMatrix[i].concat(identity[i]);
+  }
+
+  var rRef = this._RREF(adjMatrix);
+  var iMatrix = [];
+
+  
+  for(var i = 0; i < m; i++){
+    iMatrix.push([]);
+    for(var j = 0; j < m ; j++){
+      iMatrix[i].push(rRef[i][j+m]);
+    }
+  }
+  this._matrix = iMatrix;
+};
+
 
 
 

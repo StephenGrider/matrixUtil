@@ -137,6 +137,13 @@ var squareMatrix = new MatrixUtil([[0,3,5],[7,9,11], [13,15,17]]);
 squareMatrix.trace(); //26
 ```
 
+.inverse() ---> Sets matrix object equal to its inverse
+
+```
+var squareMatrix = new MatrixUtil([[1,2,0],[2,5,3], [4,2,5]]);
+squareMatrix.inverse();
+squareMatrix.getMatrix(); //[[0.8260869565217392,-0.43478260869565233,0.2608695652173913],[0.08695652173913038,0.21739130434782616,-0.13043478260869565],[-0.6956521739130435,0.2608695652173913,0.043478260869565216]]
+```
 
 Tests
 -------

@@ -142,6 +142,18 @@ describe('Operations', function(){
     var squareOneMatrix = new MatrixUtil([[1,2],[3,4]]);
     rectMatrix.multiply(squareOneMatrix);
     expect(rectMatrix.getMatrix()).to.be.eql([[7,10],[19,28],[35,52]]);
+  });
+
+  it('should find the inverse to a matrix', function(){
+    var squareMatrix = new MatrixUtil([[1,2,0],[2,5,3], [4,2,5]]);
+    squareMatrix.inverse();
+    expect(squareMatrix.getMatrix()).to.be.eql([[0.8260869565217392,-0.43478260869565233,0.2608695652173913],[0.08695652173913038,0.21739130434782616,-0.13043478260869565],[-0.6956521739130435,0.2608695652173913,0.043478260869565216]]);
   })
 
+
+
 });
+
+
+
+
