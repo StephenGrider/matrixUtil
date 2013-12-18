@@ -165,9 +165,29 @@ describe('Operations', function(){
     expect(squareMatrix.translateZ(40).getMatrix()).to.be.eql([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,50,1]]);
   });
 
-  it('should conduct a z-axis translation transform', function(){
+  /////rotation
+  it('should conduct a x-axis rotation transform', function(){
     var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,10,1]]);
-    expect(squareMatrix.translateZ(40).getMatrix()).to.be.eql([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,50,1]]);
+    expect(squareMatrix.rotateX(40).getMatrix()).to.be.eql([ [ 1, 0, 0, 0 ],
+                                                            [ 0, -0.6669380616522619, -0.7451131604793488, 0 ],
+                                                            [ 0, 0.7451131604793488, -0.6669380616522619, 0 ],
+                                                            [ 0, 7.451131604793488, -6.669380616522619, 1 ] ]);
+  });
+
+  it('should conduct a y-axis rotation transform', function(){
+    var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,10,1]]);
+    expect(squareMatrix.rotateY(40).getMatrix()).to.be.eql([ [ -0.6669380616522619, 0, 0.7451131604793488, 0 ],
+                                                            [ 0, 1, 0, 0 ],
+                                                            [ -0.7451131604793488, 0, -0.6669380616522619, 0 ],
+                                                            [ -7.451131604793488, 0, -6.669380616522619, 1 ] ]);
+  });
+
+  it('should conduct a z-axis rotation transform', function(){
+    var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,10,1]]);
+    expect(squareMatrix.rotateZ(40).getMatrix()).to.be.eql([ [ -0.6669380616522619, -0.7451131604793488, 0, 0 ],
+                                                            [ 0.7451131604793488, -0.6669380616522619, 0, 0 ],
+                                                            [ 0, 0, 1, 0 ],
+                                                            [ 0, 0, 10, 1 ] ]);
   });
 
 

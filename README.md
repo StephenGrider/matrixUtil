@@ -145,6 +145,49 @@ squareMatrix.inverse();
 squareMatrix.getMatrix(); //[[0.8260869565217392,-0.43478260869565233,0.2608695652173913],[0.08695652173913038,0.21739130434782616,-0.13043478260869565],[-0.6956521739130435,0.2608695652173913,0.043478260869565216]]
 ```
 
+.translateX(units) ---> Translates 'units' units in the X direction.  Assumes 4x4 matrix.
+
+```
+var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [10,0,0,1]]);
+squareMatrix.translateX(40).getMatrix() //([[1,0,0,0],[0,1,0,0], [0,0,1,0], [50,0,0,1]]);
+```
+
+.translateY(units) ---> Translates 'units' units in the Y direction. Assumes 4x4 matrix.
+
+```
+var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,10,0,1]]);
+squareMatrix.translateY(40).getMatrix() //[[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,50,0,1]]);
+```
+
+.translateZ(units) ---> Translates 'units' units in the Z direction. Assumes 4x4 matrix.
+
+```
+var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,10,1]]);
+squareMatrix.translateZ(40).getMatrix() //[[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,50,1]]);
+```
+
+.rotateX(rads) ---> Rotates 'rads' radians about the X axis
+
+```
+var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,10,1]]);
+squareMatrix.rotateX(40).getMatrix() //[ [ 1, 0, 0, 0 ],[ 0, -0.6669380616522619, -0.7451131604793488, 0 ],[ 0, 0.7451131604793488, -0.6669380616522619, 0 ],[ 0, 7.451131604793488, -6.669380616522619, 1 ] ]);
+```
+
+.rotateY(rads) ---> Rotates 'rads' radians about the Y axis
+
+```
+var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,10,1]]);
+squareMatrix.rotateY(40).getMatrix() //[ [ -0.6669380616522619, 0, 0.7451131604793488, 0 ],[ 0, 1, 0, 0 ],[ -0.7451131604793488, 0, -0.6669380616522619, 0 ],[ -7.451131604793488, 0, -6.669380616522619, 1 ] ]);
+```
+
+.rotateZ(rads) ---> Rotates 'rads' radians about the Z axis
+
+```
+var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,10,1]]);
+squareMatrix.rotateZ(40).getMatrix() //[ [ -0.6669380616522619, -0.7451131604793488, 0, 0 ],[ 0.7451131604793488, -0.6669380616522619, 0, 0 ],[ 0, 0, 1, 0 ],[ 0, 0, 10, 1 ] ]);
+```
+
+
 Tests
 -------
 
