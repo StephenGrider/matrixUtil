@@ -4,7 +4,7 @@ Matrix Util
 
 Purpose
 -------
-Concise and clear functions for NxM matrices.
+Concise and clear functions for MxN matrices.
 
 
 
