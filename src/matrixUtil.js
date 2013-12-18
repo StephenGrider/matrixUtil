@@ -234,27 +234,83 @@ MatrixUtil.prototype.rotateX = function(rad){
                                   [0,Math.cos(rad),-1*Math.sin(rad),0],
                                   [0,Math.sin(rad),Math.cos(rad),0],
                                   [0,0,0,1]
-                                ])
+                                ]);
 
   this.multiply(rotation);
   return this;
 };
 MatrixUtil.prototype.rotateY = function(rad){
 
-  var rotation = new MatrixUtil()
+  var rotation = new MatrixUtil([
+                                  [Math.cos(rad),0,Math.sin(rad),0],
+                                  [0,1,0,0],
+                                  [-1*Math.sin(rad),0,Math.cos(rad),0],
+                                  [0,0,0,1]
+                                ]);
+
+  this.multiply(rotation);
+  return this;
 
 };
 MatrixUtil.prototype.rotateZ = function(rad){
+  var rotation = new MatrixUtil([
+                                  [Math.cos(rad),-1*Math.sin(rad),0,0],
+                                  [Math.sin(rad),Math.cos(rad),0,0],
+                                  [0,0,1,0],
+                                  [0,0,0,1]
+                                ]);
 
-  var rotation = new MatrixUtil()
-
+  this.multiply(rotation);
+  return this;
 };
 
-MatrixUtil.prototype.translate = function(x,y,z){
+MatrixUtil.prototype.translateX = function(x){
+  var rotation = new MatrixUtil([
+                                  [1,0,0,0],
+                                  [0,1,0,0],
+                                  [0,0,1,0],
+                                  [x,0,0,1]
+                                ]);
 
-  
-
+  this.multiply(rotation);
+  return this;
 };
+MatrixUtil.prototype.translateY = function(y){
+  var rotation = new MatrixUtil([
+                                  [1,0,0,0],
+                                  [0,1,0,0],
+                                  [0,0,1,0],
+                                  [0,y,0,1]
+                                ]);
+
+  this.multiply(rotation);
+  return this;
+};
+
+MatrixUtil.prototype.translateZ = function(z){
+  var rotation = new MatrixUtil([
+                                  [1,0,0,0],
+                                  [0,1,0,0],
+                                  [0,0,1,0],
+                                  [0,0,z,1]
+                                ]);
+
+  this.multiply(rotation);
+  return this;
+};
+
+
+MatrixUtil.prototype.copyMatrix = function(){
+  var copy = [];
+
+  for(var i = 0; i < this.numRows(); i++){
+    copy.push([]);
+    for(var j = 0; j < this.numColumns(); j++){
+      copy[i].push(this._matrix[i][j]);
+    }
+  }
+  return copy;
+}
 
 MatrixUtil.prototype.toString = function(){
   var s = ""
@@ -267,7 +323,3 @@ MatrixUtil.prototype.toString = function(){
   }.bind(this));
   return s
 }
-
-
-
-
