@@ -148,7 +148,27 @@ describe('Operations', function(){
     var squareMatrix = new MatrixUtil([[1,2,0],[2,5,3], [4,2,5]]);
     squareMatrix.inverse();
     expect(squareMatrix.getMatrix()).to.be.eql([[0.8260869565217392,-0.43478260869565233,0.2608695652173913],[0.08695652173913038,0.21739130434782616,-0.13043478260869565],[-0.6956521739130435,0.2608695652173913,0.043478260869565216]]);
-  })
+  });
+
+  it('should conduct a x-axis translation transform', function(){
+    var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [10,0,0,1]]);
+    expect(squareMatrix.translateX(40).getMatrix()).to.be.eql([[1,0,0,0],[0,1,0,0], [0,0,1,0], [50,0,0,1]]);
+  });
+
+  it('should conduct a y-axis translation transform', function(){
+    var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,10,0,1]]);
+    expect(squareMatrix.translateY(40).getMatrix()).to.be.eql([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,50,0,1]]);
+  });
+
+  it('should conduct a z-axis translation transform', function(){
+    var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,10,1]]);
+    expect(squareMatrix.translateZ(40).getMatrix()).to.be.eql([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,50,1]]);
+  });
+
+  it('should conduct a z-axis translation transform', function(){
+    var squareMatrix = new MatrixUtil([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,10,1]]);
+    expect(squareMatrix.translateZ(40).getMatrix()).to.be.eql([[1,0,0,0],[0,1,0,0], [0,0,1,0], [0,0,50,1]]);
+  });
 
 
 
