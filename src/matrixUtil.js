@@ -315,17 +315,9 @@ MatrixUtil.prototype.toString = function(){
   var s = ""
   this._each(function(row,column){
     if(row===this._matrix[0].length-1 && column===this._matrix.length-1){
-      if(this._matrix[row][column] < 0.000009999){
-        s+=0;
-      } else{
-        s+=this._matrix[row][column];
-      }
+      s+=this._matrix[row][column];
     }else{
-      if(this._matrix[row][column] < 0.000009999){
-        s+= 0 + ",";
-      } else{
-        s+= this._matrix[row][column] + ",";
-      }
+      s+= this._matrix[row][column] + ",";
     }
   }.bind(this));
   return s
